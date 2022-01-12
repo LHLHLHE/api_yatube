@@ -1,3 +1,5 @@
+import textwrap
+
 from django.contrib.auth import get_user_model
 from django.db import models
 from django.db.models.fields import TextField
@@ -9,6 +11,9 @@ class Group(models.Model):
     title = models.CharField(max_length=200)
     slug = models.SlugField(max_length=50, unique=True)
     description = TextField()
+
+    class Meta:
+        ordering = ('title',)
 
     def __str__(self):
         return self.slug
@@ -26,8 +31,16 @@ class Post(models.Model):
         related_name="posts", blank=True, null=True
     )
 
+    class Meta:
+        ordering = ('pub_date',)
+
     def __str__(self):
-        return self.text
+        return (
+            f'{textwrap.shorten(self.text, width=15)}, '
+            f'{self.pub_date}, '
+            f'{self.author.username}, '
+            f'{self.group}'
+        )
 
 
 class Comment(models.Model):
@@ -38,6 +51,17 @@ class Comment(models.Model):
     text = models.TextField()
     created = models.DateTimeField(
         'Дата добавления', auto_now_add=True, db_index=True)
+
+    class Meta:
+        ordering = ('-created',)
+
+    def __str__(self):
+        return (
+            f'{textwrap.shorten(self.text, width=15)}, '
+            f'{self.post.id}'
+            f'{self.created}, '
+            f'{self.author.username}'
+        )
 
 
 class Follow(models.Model):
@@ -57,6 +81,7 @@ class Follow(models.Model):
             fields=['user', 'following'],
             name='unique follow'
         )
+        ordering = ('following',)
 
     def __str__(self):
         return (
