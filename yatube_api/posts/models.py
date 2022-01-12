@@ -81,7 +81,7 @@ class Follow(models.Model):
             fields=['user', 'following'],
             name='unique follow'
         )
-        ordering = ('following',)
+        ordering = ('user', 'following')
 
     def __str__(self):
         return (
