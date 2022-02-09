@@ -1,6 +1,8 @@
 # **API for YaTube**
 ## **Description**
 API for interacting with **YaTube**(https://github.com/LHLHLHE/yatube_project.git) project.
+### Authors
+Лев Халяпин
 ## **How to start the project**
 Clone the repository and go to it on the command line:
 ```
@@ -171,9 +173,6 @@ POST /api/v1/jwt/create/
     "access": "string"
 }
 ```
-
-### Authors
-Лев Халяпин
 
 ### License
 MIT License
