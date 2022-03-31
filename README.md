@@ -6,10 +6,10 @@ API for interacting with **YaTube**(https://github.com/LHLHLHE/yatube_project.gi
 ## **How to start the project**
 Clone the repository and go to it on the command line:
 ```
-git clone https://github.com/LHLHLHE/api_final_yatube.git
+git clone https://github.com/LHLHLHE/api_yatube.git
 ```
 ```
-cd api_final_yatube
+cd api_yatube
 ```
 Create and activate a venv:
 ```
