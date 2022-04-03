@@ -45,6 +45,12 @@ Pillow==8.3.1
 PyJWT==2.1.0
 requests==2.26.0
 ```
+
+### Technologies
+- Python 3.9
+- Django 2.2.16
+- Djangorestframework 3.12.4
+
 ## **Examples of API requests**
 ```
 GET /api/v1/posts/
